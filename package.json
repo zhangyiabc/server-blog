@@ -1,0 +1,35 @@
+{
+  "name": "blog",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev":"nodemon -x npm run serve",
+    "start": "nodemon index",
+    "serve": "node --inspect index",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "ali-oss": "^6.16.0",
+    "axios": "^0.21.1",
+    "cheerio": "*",
+    "cookie-parser": "^1.4.5",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "express-session": "^1.17.2",
+    "http-proxy-middleware": "^2.0.1",
+    "jimp": "^0.16.1",
+    "jsonwebtoken": "^8.5.1",
+    "log4js": "^6.3.0",
+    "md5": "^2.3.0",
+    "mockjs": "^1.1.0",
+    "moment": "^2.29.1",
+    "multer": "^1.4.3",
+    "mysql2": "^2.2.5",
+    "path-to-regexp": "^6.2.0",
+    "sequelize": "^6.6.5",
+    "validate.js": "^0.13.1"
+  }
+}
