@@ -191,10 +191,30 @@ const giveCommentNice = async (commId) => {
   }
 };
 
+// 取消评论点赞
+const cancelCommentNice = async (commId) => {
+  if (!commId) {
+    return "id 不存在";
+  }
+  const commInfo = await getCommDetail(commId);
+  commInfo.nicecount = +commInfo.nicecount - 1;
+  if(commInfo.nicecount < 0){
+    commInfo.nicecount = 0
+  }
+  const result = await updateComm(commInfo.id, commInfo);
+  if (result == "更新成功") {
+    return "取消成功";
+  } else {
+    return "取消失败";
+  }
+}
+
+
 module.exports = {
   addComm,
   delComm,
   getAllComm,
   updateComm,
   giveCommentNice,
+  cancelCommentNice
 };

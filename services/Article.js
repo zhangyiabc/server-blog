@@ -370,6 +370,26 @@ const giveArticleNice = async (articleId) => {
   }
 };
 
+// 取消文章点赞
+const cancelArticleNice = async (articleId) => {
+  if (!articleId) {
+    return null;
+  }
+  let articleInfo = await getArticleDetail(articleId);
+  articleInfo = articleInfo.data[0];
+  articleInfo.nicecount = +articleInfo.nicecount - 1;
+  if(articleInfo.nicecount < 0){
+    articleInfo.nicecount = 0
+
+  }
+  const result = await updateArticle(articleInfo.id, articleInfo);
+  if (result == "更新成功") {
+    return "取消成功";
+  } else {
+    return "取消失败";
+  }
+}
+
 // 修改文章发布状态
 // 只可修改
 const updateStatus = async (articleObj) => {
@@ -417,4 +437,5 @@ module.exports = {
   getArticleAll,
   updateArticle,
   getArticleDetail,
+  cancelArticleNice
 };
